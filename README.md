@@ -6,7 +6,9 @@ A big, always-on-top scroll bar that sits on the edge of your screen and scrolls
 
 Windows 7 SP1+ / 10 / 11 · single small exe · silent install · MIT licensed.
 
-**[Download the latest release »](https://github.com/YahooEatApple/BigBar/releases/latest)** · **[Help site »](https://yahooeatapple.github.io/BigBar/)**
+**Website: [www.bigbar.me](http://www.bigbar.me)** — browse and download skins, grab the installer, read the help pages.
+
+**[Download »](https://github.com/YahooEatApple/BigBar/releases/latest)** · **[Skins »](http://www.bigbar.me/skins)** · **[Help »](http://www.bigbar.me/help)** · **[Docs site »](https://yahooeatapple.github.io/BigBar/)**
 
 ![BigBar with a dog skin](docs/screenshots/02-skin-puppy.png)
 
@@ -20,11 +22,12 @@ Thin, low-contrast scrollbars are hard to find and harder to grab — especially
 - **K** — drag to scroll proportionally; hand cursor on hover, grabbing hand while dragging (even outside the bar)
 - **B** — click to jump to the end
 - **F** — the track, split into two segments at the knob's centre (A→K and K→B), each with its own skin block; the knob floats on top
-- **Always on top**, without stealing keyboard focus
+- **Always on top** — permanently, without stealing keyboard focus (no toggle in the menu)
 - **Skins** — one JSON file per skin with CSS-like blocks for A / B / K / F1 / F2, cursors, hover states, per-language names
 - **Three languages** in the menu and tray: English / 中文 / Español
 - **Opacity 0–100**, size presets, position & height adjustment with on-bar confirm / cancel buttons
-- **Tray icon** with the same menu; `Ctrl` + `Alt` + `S` shows / hides the bar
+- **Tray icon** with the same menu; the show / hide item has no hotkey (the old `Ctrl`+`Alt`+`S` shortcut was removed)
+- **Add skin by code** — enter a skin code (≤ 16 chars), download `http://www.bigbar.me/skin/<code>` and unpack it into `%AppData%\BigBar\skins`, overwriting the local copy if it already exists
 
 | Skin | North-land | Menu |
 | --- | --- | --- |
@@ -32,9 +35,9 @@ Thin, low-contrast scrollbars are hard to find and harder to grab — especially
 
 ## Install
 
-1. Download `BigBar-Setup-1.1.0.exe` from Releases and run it.
+1. Download `BigBar-Setup-1.1.1.exe` from Releases and run it.
 2. It installs to `%LocalAppData%\Programs\BigBar`, creates desktop + Start-menu shortcuts and enables auto-start.
-3. Silent install: `BigBar-Setup-1.1.0.exe /silent`
+3. Silent install: `BigBar-Setup-1.1.1.exe /silent`
 4. Uninstall: Settings → Apps → **BigBar**, or `Uninstall.exe /uninstall`
 
 ## Skins
