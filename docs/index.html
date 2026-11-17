@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BigBar — Customizable large scroll bar for Windows</title>
+<meta name="description" content="BigBar keeps a big, always-on-top scroll bar on the edge of your screen, so you never have to hunt for a thin scrollbar again. Skinnable, single small exe, silent install.">
+<style>
+  :root{
+    --bg:#0e1217; --panel:#161d25; --line:#243040; --txt:#dfe8f2; --dim:#8fa3b8;
+    --accent:#35c7d6; --accent2:#7d6cf6;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--txt);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei UI","PingFang SC",Roboto,sans-serif}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px 80px}
+  header{padding:64px 0 40px;border-bottom:1px solid var(--line);margin-bottom:44px}
+  .badge{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);border:1px solid rgba(53,199,214,.35);border-radius:100px;padding:4px 12px;margin-bottom:18px}
+  h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:0 0 14px;letter-spacing:-.02em}
+  h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--dim);font-size:18px;max-width:680px;margin:0}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;align-items:center}
+  .btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;font-size:15px;
+    background:linear-gradient(135deg,var(--accent),#2aa9c4);color:#08252b}
+  .btn:hover{text-decoration:none;filter:brightness(1.08)}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--txt)}
+  .lang{margin-left:auto;font-size:14px}
+  .lang button{background:none;border:1px solid var(--line);color:var(--dim);border-radius:8px;
+    padding:6px 12px;cursor:pointer;font:inherit;margin-left:6px}
+  .lang button.on{border-color:var(--accent);color:var(--accent)}
+  h2{font-size:22px;margin:52px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  h3{font-size:17px;margin:28px 0 8px;color:#fff}
+  p{margin:12px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .card h3{margin:0 0 6px;font-size:15px;color:var(--accent)}
+  .card p{margin:0;color:var(--dim);font-size:14px}
+  pre{background:#0b1017;border:1px solid var(--line);border-radius:12px;padding:16px;overflow:auto;
+    font:13px/1.6 "SFMono-Regular",Consolas,"Cascadia Mono",monospace;color:#cbd8e6}
+  code{font-family:"SFMono-Regular",Consolas,"Cascadia Mono",monospace;font-size:.92em}
+  .kbd{display:inline-block;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;
+    padding:1px 7px;font-size:13px;background:#101821}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--dim);font-weight:600}
+  figure{margin:18px 0}
+  img{max-width:100%;border:1px solid var(--line);border-radius:12px;display:block}
+  figcaption{color:var(--dim);font-size:13px;margin-top:8px}
+  .note{border-left:3px solid var(--accent);background:rgba(53,199,214,.06);padding:12px 16px;border-radius:0 10px 10px 0;color:var(--dim);font-size:14px}
+  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+  [data-zh]{display:none}
+  html.zh [data-zh]{display:block}
+  html.zh [data-en]{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="badge">Windows · v1.1.0 · Free</div>
+  <h1><span>BigBar</span></h1>
+  <p class="lead" data-en>A big, always-on-top scroll bar on the edge of your screen. It scrolls the window you last clicked — browsers, Word, Excel, PDF, Notepad, anything. Skinnable, one small exe, silent install.</p>
+  <p class="lead" data-zh>常驻桌面的大号滚动条：屏幕边缘一条看得见、点得中的滚动控制条，滚动的永远是你最后一次点击的那个窗口。浏览器、Word、Excel、PDF、记事本都行。皮肤可自定义，单文件小 exe，静默安装。</p>
+  <div class="cta">
+    <a class="btn" href="https://github.com/YahooEatApple/BigBar/releases/latest" data-en>Download for Windows</a>
+    <a class="btn" href="https://github.com/YahooEatApple/BigBar/releases/latest" data-zh>下载 Windows 版</a>
+    <a class="btn ghost" href="https://github.com/YahooEatApple/BigBar">GitHub</a>
+    <div class="lang">
+      <button id="btn-en" class="on">English</button><button id="btn-zh">中文</button>
+    </div>
+  </div>
+</header>
+
+<figure>
+  <img src="screenshots/02-skin-puppy.png" alt="BigBar with a dog skin">
+  <figcaption data-en>Third-party skin: <code>小狗旺旺</code> — background image, hover states and split track, all from one <code>.skin</code> file.</figcaption>
+  <figcaption data-zh>第三方皮肤「小狗旺旺」：背景图、悬停态、分段轨道，全部来自同一个 <code>.skin</code> 文件。</figcaption>
+</figure>
+
+<h2 data-en>How it works</h2>
+<h2 data-zh>怎么用</h2>
+
+<div class="grid">
+  <div class="card">
+    <h3>A · 到顶 / Go top</h3>
+    <p data-en>Click: the target window scrolls to the very top. Hover for the skin-defined highlight.</p>
+    <p data-zh>单击：目标窗口回到最顶部。移上去有皮肤定义的悬停效果。</p>
+  </div>
+  <div class="card">
+    <h3>K · 滑块 / Knob</h3>
+    <p data-en>Drag it to scroll proportionally. Cursor becomes a hand on hover and a grabbing hand while dragging — even outside the bar.</p>
+    <p data-zh>按住拖动，按比例滚动。指针移上去是手形，拖动时是抓取手形（拖出条外也一样）。</p>
+  </div>
+  <div class="card">
+    <h3>B · 到底 / Go bottom</h3>
+    <p data-en>Click: jump to the end of the document. Double-click A or B for the same jump.</p>
+    <p data-zh>单击：跳到文档最底部。A / B 双击同样是自动滑到顶 / 底。</p>
+  </div>
+  <div class="card">
+    <h3>F · 轨道 / Track</h3>
+    <p data-en>Split into two segments at the knob's center — A→K and K→B — each with its own skin block. The knob floats above both.</p>
+    <p data-zh>以滑块中心为界拆成两段：A→K 与 K→B，两段各用一套皮肤样式，滑块浮在两者之上。</p>
+  </div>
+</div>
+
+<p class="note" data-en>BigBar never steals focus: clicking it does not interrupt the window you are working in. It stays above every other window, including maximized apps.</p>
+<p class="note" data-zh>不抢窗口焦点：点它不会打断你正在用的窗口。它永远浮在所有窗口之上，最大化应用也盖不住。</p>
+
+<h3 data-en>Keyboard</h3>
+<h3 data-zh>快捷键</h3>
+<p><span class="kbd">Ctrl</span> + <span class="kbd">Alt</span> + <span class="kbd">S</span> —
+<span data-en>show / hide the bar.</span><span data-zh>显示 / 隐藏滚动条。</span></p>
+
+<h2 data-en>Menu</h2>
+<h2 data-zh>菜单</h2>
+<figure>
+  <img src="screenshots/08-menu-en.png" alt="BigBar menu in English">
+  <figcaption data-en>The same menu appears from the tray icon. Language: English / 中文 / Español.</figcaption>
+  <figcaption data-zh>托盘右键打开同一个菜单。语言：English / 中文 / Español。</figcaption>
+</figure>
+<table>
+  <tr><th data-en>Item</th><th data-zh>菜单项</th><th data-en>What it does</th><th data-zh>作用</th></tr>
+  <tr><td data-en>Skin</td><td data-zh>皮肤</td><td data-en>Second-level list of every <code>.skin</code> in <code>%AppData%\BigBar\skins</code>; picking one closes the menu and reloads size, colours and images.</td><td data-zh>二级菜单列出 <code>%AppData%\BigBar\skins</code> 里的所有 <code>.skin</code>；选完菜单自动收起，尺寸、配色、图片立刻重载。</td></tr>
+  <tr><td data-en>Size</td><td data-zh>尺寸</td><td data-en>Small / Medium / Large.</td><td data-zh>小 / 中 / 大。</td></tr>
+  <tr><td data-en>Opacity</td><td data-zh>透明度</td><td data-en>Slider, 0–100.</td><td data-zh>进度条选择，0–100。</td></tr>
+  <tr><td data-en>Position &amp; height</td><td data-zh>调整位置及高度</td><td data-en>Enter adjust mode; confirm (✓) / cancel (✕) buttons appear on the free side of the bar.</td><td data-zh>进入调整状态，条的空闲一侧出现 确定（✓）/ 取消（✕）按钮。</td></tr>
+  <tr><td data-en>Topmost</td><td data-zh>置顶</td><td data-en>Keep the bar above all windows.</td><td data-zh>让它在所有窗口之上，不被遮挡。</td></tr>
+  <tr><td data-en>Language</td><td data-zh>语言</td><td data-en>English / 中文 / Español — also switches skin names and tray text.</td><td data-zh>English / 中文 / Español，皮肤名与托盘文案一起切换。</td></tr>
+  <tr><td data-en>Hide</td><td data-zh>隐藏</td><td data-en>Hide the bar (restore from the tray icon).</td><td data-zh>隐藏工具（从托盘图标恢复）。</td></tr>
+</table>
+
+<h2 data-en>Skins</h2>
+<h2 data-zh>皮肤</h2>
+<p data-en>Each skin is a JSON file with CSS-like blocks for <code>A</code>, <code>B</code>, <code>K</code>, <code>F1</code>, <code>F2</code>. Cursors, images, hover states and per-language names all live in the file.</p>
+<p data-zh>一套皮肤就是一个 JSON 文件，<code>A</code> / <code>B</code> / <code>K</code> / <code>F1</code> / <code>F2</code> 各写一段类 CSS 样式。指针、图片、悬停态、多语名字都写在里面。</p>
+<pre>{
+  "name": "MySkin",
+  "width": 100, "height": 720,
+  "language": { "en": "My Skin", "zh": "我的皮肤", "es": "Mi Piel" },
+  "elements": [
+    { "name": "A", "action": "top",
+      "style": {
+        "cursor": "pointer",
+        "width": "100px", "height": "80px",
+        "background-image": "url(MySkin/a.png)",
+        "background-repeat": "no-repeat",
+        "background-size": "cover",
+        "background-position": "0px 0px"
+      },
+      "mouseover": { "style": { "background-image": "url(MySkin/a_hover.png)" } }
+    },
+    { "name": "K", "action": "scroll",
+      "style": { "cursor": "pointer", "height": "120px" } },
+    { "name": "F1", "style": { "background-image": "url(MySkin/track_top.png)", "background-repeat": "repeat-y" } },
+    { "name": "F2", "style": { "background-image": "url(MySkin/track_bottom.png)", "background-repeat": "repeat-y" } }
+  ]
+}</pre>
+<p data-en>Cursor rules: <code>K</code> shows a <b>hand</b> on hover, a <b>grabbing hand</b> while dragging (also outside the bar), and back to a hand when you release. A/B/K hover and drag cursors are taken from the skin's <code>cursor</code> field.</p>
+<p data-zh>指针规则：<code>K</code> 悬停为手形，按住拖动为抓取手形（拖出条外也一样），松手仍停在 K 上时回到手形。A / B / K 的悬停与拖动指针都取自皮肤里的 <code>cursor</code>。</p>
+<p data-en>A default skin and three sample skins are written to <code>%AppData%\BigBar\skins</code> on first run. Files you edit yourself are never overwritten by an update — upgrades only touch files carrying the program's own marker.</p>
+<p data-zh>首次运行会把默认皮肤与三套示例皮肤写到 <code>%AppData%\BigBar\skins</code>。你自己改过的文件不会被升级覆盖——升级只认程序自己写入的标记。</p>
+
+<h2 data-en>Install</h2>
+<h2 data-zh>安装</h2>
+<ol data-en>
+  <li>Download <code>BigBar-Setup-1.1.0.exe</code> and run it.</li>
+  <li>Install target: <code>%LocalAppData%\Programs\BigBar</code>. Desktop + Start-menu shortcuts and auto-start are created.</li>
+  <li>Silent install: <code>BigBar-Setup-1.1.0.exe /silent</code>.</li>
+  <li>Uninstall: Settings → Apps → BigBar, or <code>Uninstall.exe /uninstall</code>.</li>
+</ol>
+<ol data-zh>
+  <li>下载 <code>BigBar-Setup-1.1.0.exe</code> 后运行。</li>
+  <li>默认装到 <code>%LocalAppData%\Programs\BigBar</code>，自动生成桌面与开始菜单快捷方式、写入开机自启。</li>
+  <li>静默安装：<code>BigBar-Setup-1.1.0.exe /silent</code>。</li>
+  <li>卸载：设置 → 应用 → BigBar，或运行安装目录里的 <code>Uninstall.exe /uninstall</code>。</li>
+</ol>
+
+<h2 data-en>Files</h2>
+<h2 data-zh>文件位置</h2>
+<table>
+  <tr><th data-en>Item</th><th data-zh>内容</th><th data-en>Path</th><th data-zh>路径</th></tr>
+  <tr><td data-en>Program</td><td data-zh>主程序</td><td colspan="2"><code>%LocalAppData%\Programs\BigBar\BigBar.exe</code></td></tr>
+  <tr><td data-en>Settings</td><td data-zh>配置</td><td colspan="2"><code>HKCU\Software\BigBar</code></td></tr>
+  <tr><td data-en>Skins</td><td data-zh>皮肤</td><td colspan="2"><code>%AppData%\BigBar\skins</code></td></tr>
+  <tr><td data-en>Sounds</td><td data-zh>音效</td><td colspan="2"><code>%AppData%\BigBar\sounds</code></td></tr>
+  <tr><td data-en>Log</td><td data-zh>日志</td><td colspan="2"><code>%TEMP%\BigBar.log</code></td></tr>
+</table>
+<p data-en>Upgrading from the old name: settings from <code>Software\Gunbar</code> and skins from <code>%AppData%\Gunbar</code> are inherited and copied on first start. Nothing is deleted.</p>
+<p data-zh>从旧名字升级：旧键 <code>Software\Gunbar</code> 的设置与 <code>%AppData%\Gunbar</code> 的皮肤会在首次启动时继承并复制过来，旧内容不删除。</p>
+
+<h2 data-en>FAQ</h2>
+<h2 data-zh>常见问题</h2>
+<h3 data-en>I picked a skin and the bar looks like a flat test strip</h3>
+<h3 data-zh>选了某套皮肤，工具却像一条「测试用的简易条」？</h3>
+<p data-en>Check two things in the <code>.skin</code>: its <code>width</code> (a simplified file is often 70-something px wide) and whether the <code>url(...)</code> entries point at real images. If the file was overwritten, restore a nearby <code>*.bakN</code> copy (the highest number is the newest).</p>
+<p data-zh>看两处：<code>.skin</code> 里的 <code>width</code>（被简化过的一般只有七十来像素宽），以及 <code>url(...)</code> 指向的图片是否真实存在。如果文件被覆盖过，把同目录里编号最大的 <code>*.bakN</code> 恢复回去即可。</p>
+
+<h3 data-en>It does not scroll a particular app</h3>
+<h3 data-zh>某个程序里滚不动？</h3>
+<p data-en>Chromium-based and some UWP apps do not expose a standard scrollbar; direct-3D exclusive full-screen windows cannot be covered by a normal topmost window. Everything else — browsers, Office, PDF viewers, Notepad — works.</p>
+<p data-zh>Chromium 系与部分 UWP 应用不暴露标准滚动信息；独占全屏（DirectX）窗口普通置顶窗盖不上。其余场景（浏览器、Office、PDF、记事本等）均可用。</p>
+
+<h2 data-en>Changelog</h2>
+<h2 data-zh>更新日志</h2>
+<p><b>1.1.0</b> — <span data-en>Renamed from <code>Gunbar</code> (earlier <code>BigScrollBar</code>) to <b>BigBar</b>: program, install folder, registry key, skin folder, shortcuts, uninstall entry and UI text. Existing settings and skins migrate automatically. Help link now points to this site.</span><span data-zh>从「滚一下 Gunbar」（更早叫 大号滚动条 BigScrollBar）正式改名为 <b>BigBar</b>：程序名、安装目录、注册表键、皮肤目录、快捷方式、卸载项、界面文案全部改名；已有设置与皮肤自动迁移。使用说明链接改为本站。</span></p>
+
+<footer>
+  <p data-en>MIT licensed · <a href="https://github.com/YahooEatApple/BigBar">Source &amp; issues on GitHub</a> · Windows 7 SP1+ / 10 / 11.</p>
+  <p data-zh>MIT 许可 · <a href="https://github.com/YahooEatApple/BigBar">源码与问题反馈在 GitHub</a> · 支持 Windows 7 SP1 及以上。</p>
+</footer>
+
+</div>
+<script>
+ (function(){
+   var root = document.documentElement, be = document.getElementById('btn-en'), bz = document.getElementById('btn-zh');
+   function set(lang){
+     if(lang === 'zh'){ root.classList.add('zh'); root.lang='zh-CN'; bz.classList.add('on'); be.classList.remove('on'); }
+     else { root.classList.remove('zh'); root.lang='en'; be.classList.add('on'); bz.classList.remove('on'); }
+     try{ localStorage.setItem('bigbar-lang', lang); }catch(e){}
+   }
+   be.onclick = function(){ set('en'); };
+   bz.onclick = function(){ set('zh'); };
+   var saved = null; try{ saved = localStorage.getItem('bigbar-lang'); }catch(e){}
+   if(saved) set(saved);
+   else if((navigator.language||'').toLowerCase().indexOf('zh') === 0) set('zh');
+ })();
+</script>
+</body>
+</html>
