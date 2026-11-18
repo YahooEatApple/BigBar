@@ -22,10 +22,11 @@ Thin, low-contrast scrollbars are hard to find and harder to grab — especially
 - **K** — drag to scroll proportionally; hand cursor on hover, grabbing hand while dragging (even outside the bar)
 - **B** — click to jump to the end
 - **F** — the track, split into two segments at the knob's centre (A→K and K→B), each with its own skin block; the knob floats on top
+- **Six anchor positions** — right-center / right-top / right-bottom / left-center / left-top / left-bottom, each with its own distance from the screen edge (px or %)
 - **Always on top** — permanently, without stealing keyboard focus (no toggle in the menu)
-- **Skins** — one JSON file per skin with CSS-like blocks for A / B / K / F1 / F2, cursors, hover states, per-language names
+- **Skins** — one JSON file per skin with CSS-like blocks for `pageup` / `pagedown` / `thumb` / `track` / `upper-track` / `lower-track` (old A / B / K / F / F1 / F2 still accepted), cursors, hover states, per-language names, and the `width` / `height` / `position` / `distance` / `limit` size objects in `tool.style`
 - **Three languages** in the menu and tray: English / 中文 / Español
-- **Opacity 0–100**, size presets, position & height adjustment with on-bar confirm / cancel buttons
+- **Menu** — Skin (first row) / Width / Height / Position / Distance / Opacity / Sound / Hide; the four size rows are sub-menus showing the current value plus an arrow, and adjusting position & height uses on-bar confirm / cancel buttons
 - **Tray icon** with the same menu; the show / hide item has no hotkey (the old `Ctrl`+`Alt`+`S` shortcut was removed)
 - **Add skin by code** — enter a skin code (≤ 16 chars), download `http://www.bigbar.me/skin/<code>` and unpack it into `%AppData%\BigBar\skins`, overwriting the local copy if it already exists
 
@@ -35,9 +36,9 @@ Thin, low-contrast scrollbars are hard to find and harder to grab — especially
 
 ## Install
 
-1. Download `BigBar-Setup-1.1.1.exe` from Releases and run it.
+1. Download `BigBar-Setup-1.1.2.exe` from Releases and run it.
 2. It installs to `%LocalAppData%\Programs\BigBar`, creates desktop + Start-menu shortcuts and enables auto-start.
-3. Silent install: `BigBar-Setup-1.1.1.exe /silent`
+3. Silent install: `BigBar-Setup-1.1.2.exe /silent`
 4. Uninstall: Settings → Apps → **BigBar**, or `Uninstall.exe /uninstall`
 
 ## Skins
@@ -47,13 +48,20 @@ Skins live in `%AppData%\BigBar\skins`. A default skin plus three samples are wr
 ```json
 {
   "name": "MySkin",
-  "width": 100, "height": 720,
   "language": { "en": "My Skin", "zh": "我的皮肤", "es": "Mi Piel" },
-  "elements": [
-    { "name": "A", "action": "top",
+  "tool": [
+    { "action": "default", "style": {
+        "width":    { "default": "100px", "large": "100px", "medium": "70px", "small": "50px" },
+        "height":   { "default": "600px", "large": "70%",   "medium": "50%", "small": "30%" },
+        "position": { "default": "right-center" },
+        "distance": { "default": "30px", "large": "50px", "medium": "30px", "small": "0px" },
+        "limit":    { "max-height": "90%", "min-height": "400px" } } }
+  ],
+  "buttons": [
+    { "name": "pageup", "action": "default",
       "style": {
         "cursor": "pointer",
-        "width": "100px", "height": "80px",
+        "height": "80px",
         "background-image": "url(MySkin/a.png)",
         "background-repeat": "no-repeat",
         "background-size": "cover",
@@ -61,14 +69,14 @@ Skins live in `%AppData%\BigBar\skins`. A default skin plus three samples are wr
       },
       "mouseover": { "style": { "background-image": "url(MySkin/a_hover.png)" } }
     },
-    { "name": "K", "action": "scroll", "style": { "cursor": "pointer", "height": "120px" } },
-    { "name": "F1", "style": { "background-image": "url(MySkin/track_top.png)", "background-repeat": "repeat-y" } },
-    { "name": "F2", "style": { "background-image": "url(MySkin/track_bottom.png)", "background-repeat": "repeat-y" } }
+    { "name": "thumb", "style": { "cursor": "pointer", "height": "120px" } },
+    { "name": "upper-track", "style": { "background-image": "url(MySkin/track_top.png)", "background-repeat": "repeat-y" } },
+    { "name": "lower-track", "style": { "background-image": "url(MySkin/track_bottom.png)", "background-repeat": "repeat-y" } }
   ]
 }
 ```
 
-`background-repeat` follows standard CSS (`repeat-x` / `repeat-y` / `no-repeat`), `background-position` accepts negative and split values, `background-size` accepts `auto` / `cover` / `100% auto`. The skin's `width` / `height` decide the bar's size, and switching a skin reloads its files and images immediately.
+`background-repeat` follows standard CSS (`repeat-x` / `repeat-y` / `no-repeat`), `background-position` accepts negative and split values, `background-size` accepts `auto` / `cover` / `100% auto`. `tool.style` holds `width` / `height` / `distance` as four-step objects (`default` / `large` / `medium` / `small`), `position` as one of the six anchors (`right-center` / `right-top` / `right-bottom` / `left-center` / `left-top` / `left-bottom`), and `limit` as `max-height` / `min-height`. Switching a skin reloads its files, images and size immediately.
 
 Files you edit yourself are never overwritten by an update: built-in skins are only upgraded when they carry the program's own marker. If a skin ever gets replaced, a numbered `*.bakN` copy stays next to it.
 
