@@ -126,13 +126,18 @@
 <table>
   <tr><th data-en>Item</th><th data-zh>菜单项</th><th data-en>What it does</th><th data-zh>作用</th></tr>
   <tr><td data-en>Skin</td><td data-zh>皮肤</td><td data-en>Second-level list of every <code>.skin</code> in <code>%AppData%\BigBar\skins</code>; picking one closes the menu and reloads size, colours and images.</td><td data-zh>二级菜单列出 <code>%AppData%\BigBar\skins</code> 里的所有 <code>.skin</code>；选完菜单自动收起，尺寸、配色、图片立刻重载。</td></tr>
-  <tr><td data-en>Size</td><td data-zh>尺寸</td><td data-en>Small / Medium / Large.</td><td data-zh>小 / 中 / 大。</td></tr>
+  <tr><td data-en>Width</td><td data-zh>宽度</td><td data-en>Default / L / M / S — reads <code>tool.style.width</code> steps; falls back to the skin default, then to 100px.</td><td data-zh>默认 / L / M / S，取皮肤 <code>tool.style.width</code> 的四档；皮肤没写就用 default，再没写就用 100px。</td></tr>
+  <tr><td data-en>Height</td><td data-zh>高度</td><td data-en>Default / L / M / S / Custom — always clamped by the skin’s <code>limit</code> (max-height / min-height). Custom enters adjust mode.</td><td data-zh>默认 / L / M / S / 自定，结果永远被皮肤 <code>limit</code>（max-height / min-height）夹住；自定进入调整状态。</td></tr>
+  <tr><td data-en>Position</td><td data-zh>位置</td><td data-en>Default / Left / Right / Custom — Default follows <code>tool.style.position</code>; Custom enters adjust mode so you can drag the bar anywhere.</td><td data-zh>默认 / 左 / 右 / 自定，默认取皮肤 <code>tool.style.position</code>；自定进入调整状态，可手动拖到任意位置。</td></tr>
+  <tr><td data-en>Adjust mode</td><td data-zh>调整状态</td><td data-en>Confirm (✓ red) / cancel (✕ white) buttons appear on the free side of the bar; right-click is disabled while adjusting.</td><td data-zh>条的空闲一侧出现 确定（红 ✓）/ 取消（白 ✕）按钮，调整状态下右键不再弹菜单。</td></tr>
   <tr><td data-en>Opacity</td><td data-zh>透明度</td><td data-en>Slider, 0–100.</td><td data-zh>进度条选择，0–100。</td></tr>
-  <tr><td data-en>Position &amp; height</td><td data-zh>调整位置及高度</td><td data-en>Enter adjust mode; confirm (✓) / cancel (✕) buttons appear on the free side of the bar.</td><td data-zh>进入调整状态，条的空闲一侧出现 确定（✓）/ 取消（✕）按钮。</td></tr>
   <tr><td data-en>Add skin…</td><td data-zh>添加皮肤…</td><td data-en>Enter a skin code (max 16 chars), download <code>http://www.bigbar.me/skin/&lt;code&gt;</code> and unpack it into <code>%AppData%\BigBar\skins</code>, overwriting an existing copy.</td><td data-zh>填皮肤编号（最多 16 个字符），下载 <code>http://www.bigbar.me/skin/&lt;编号&gt;</code> 并解压到 <code>%AppData%\BigBar\skins</code>，本地已存在则覆盖更新。</td></tr>
-  <tr><td data-en>Language</td><td data-zh>语言</td><td data-en>English / 中文 / Español — also switches skin names and tray text.</td><td data-zh>English / 中文 / Español，皮肤名与托盘文案一起切换。</td></tr>
+  <tr><td data-en>Tray: Language</td><td data-zh>托盘：语言</td><td data-en>English / 中文 / Español — moved to the tray menu; switches menu, tray text and skin names.</td><td data-zh>English / 中文 / Español，已移到托盘菜单，皮肤名与托盘文案一起切换。</td></tr>
   <tr><td data-en>Hide</td><td data-zh>隐藏</td><td data-en>Hide the bar (restore from the tray icon).</td><td data-zh>隐藏工具（从托盘图标恢复）。</td></tr>
 </table>
+
+<p data-en>Size lives in the skin's <code>tool.style</code>: <code>width</code> / <code>height</code> are four-step objects (<code>default</code>, <code>large</code>, <code>medium</code>, <code>small</code>), <code>position</code> says <code>right</code> or <code>left</code>, and <code>limit</code> pins <code>max-height</code> / <code>min-height</code>. The menu's Width / Height / Position rows read those values, and your own choice always wins over the skin default.</p>
+<p data-zh>尺寸写在皮肤的 <code>tool.style</code> 里：<code>width</code> / <code>height</code> 都是四档对象（<code>default</code>、<code>large</code>、<code>medium</code>、<code>small</code>），<code>position</code> 写 <code>right</code> 或 <code>left</code>，<code>limit</code> 定 <code>max-height</code> / <code>min-height</code>。菜单的 宽度 / 高度 / 位置 三行就按这些取值，你在菜单里的选择永远优先于皮肤 default。</p>
 
 <h2 data-en>Skins</h2>
 <h2 data-zh>皮肤</h2>
