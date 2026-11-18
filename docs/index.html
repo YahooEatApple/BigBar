@@ -60,7 +60,7 @@
 <div class="wrap">
 
 <header>
-  <div class="badge">Windows · v1.1.3 · Free</div>
+  <div class="badge">Windows · v1.1.4 · Free</div>
   <h1><span>BigBar</span></h1>
   <p class="lead" data-en>A big, always-on-top scroll bar on the edge of your screen. It scrolls the window you last clicked — browsers, Word, Excel, PDF, Notepad, anything. Skinnable, one small exe, silent install.</p>
   <p class="lead" data-zh>常驻桌面的大号滚动条：屏幕边缘一条看得见、点得中的滚动控制条，滚动的永远是你最后一次点击的那个窗口。浏览器、Word、Excel、PDF、记事本都行。皮肤可自定义，单文件小 exe，静默安装。</p>
@@ -124,9 +124,9 @@
   <figcaption data-zh>托盘右键打开同一个菜单。语言：English / 中文 / Español。</figcaption>
 </figure>
 <figure>
-  <img src="screenshots/13-menu-9rows.png" alt="BigBar 1.1.3 nine-row menu">
-  <figcaption data-en>1.1.3 menu: nine rows (skin / width / height / position / horizontal distance / vertical distance / opacity / sound / hide), 380 wide, each row shows its current value and an arrow. Move the pointer onto a row and its sub-menu opens by itself; move away and it closes.</figcaption>
-  <figcaption data-zh>1.1.3 菜单：9 行（皮肤 / 宽度 / 高度 / 位置 / 横向距离 / 纵向距离 / 透明度 / 声音 / 隐藏），宽 380，行右侧是当前值 + 箭头。鼠标移到带二级菜单的行上会自动展开，移开自动收起。</figcaption>
+  <img src="screenshots/13-menu-9rows.png" alt="BigBar 1.1.4 nine-row menu">
+  <figcaption data-en>1.1.4 menu: nine rows (skin / width / height / position / horizontal distance / vertical distance / opacity / sound / hide), 380 wide, each row shows its current value and an arrow. Move the pointer onto a row and its sub-menu opens by itself; move away and it closes.</figcaption>
+  <figcaption data-zh>1.1.4 菜单：9 行（皮肤 / 宽度 / 高度 / 位置 / 横向距离 / 纵向距离 / 透明度 / 声音 / 隐藏），宽 380，行右侧是当前值 + 箭头。鼠标移到带二级菜单的行上会自动展开，移开自动收起。</figcaption>
 </figure>
 <table>
   <tr><th data-en>Item</th><th data-zh>菜单项</th><th data-en>What it does</th><th data-zh>作用</th></tr>
@@ -193,15 +193,15 @@
 <h2 data-en>Install</h2>
 <h2 data-zh>安装</h2>
 <ol data-en>
-  <li>Download <code>BigBar-Setup-1.1.3.exe</code> and run it.</li>
+  <li>Download <code>BigBar-Setup-1.1.4.exe</code> and run it.</li>
   <li>Install target: <code>%LocalAppData%\Programs\BigBar</code>. Desktop + Start-menu shortcuts and auto-start are created.</li>
-  <li>Silent install: <code>BigBar-Setup-1.1.3.exe /silent</code>.</li>
+  <li>Silent install: <code>BigBar-Setup-1.1.4.exe /silent</code>.</li>
   <li>Uninstall: Settings → Apps → BigBar, or <code>Uninstall.exe /uninstall</code>.</li>
 </ol>
 <ol data-zh>
-  <li>下载 <code>BigBar-Setup-1.1.3.exe</code> 后运行。</li>
+  <li>下载 <code>BigBar-Setup-1.1.4.exe</code> 后运行。</li>
   <li>默认装到 <code>%LocalAppData%\Programs\BigBar</code>，自动生成桌面与开始菜单快捷方式、写入开机自启。</li>
-  <li>静默安装：<code>BigBar-Setup-1.1.3.exe /silent</code>。</li>
+  <li>静默安装：<code>BigBar-Setup-1.1.4.exe /silent</code>。</li>
   <li>卸载：设置 → 应用 → BigBar，或运行安装目录里的 <code>Uninstall.exe /uninstall</code>。</li>
 </ol>
 
@@ -232,6 +232,7 @@
 
 <h2 data-en>Changelog</h2>
 <h2 data-zh>更新日志</h2>
+<p><b>1.1.4</b> — <span data-en>Every size sub-menu now opens <b>level with the row you picked</b> (the skin list still starts at the top). Choosing <b>Custom</b> puts a black 50% edit layer over the bar, floating above every section button, so a click on the bar can never page or jump while editing; <b>OK</b> and <b>Cancel</b> became two round icon buttons — a grass-green circle with a white check and a white circle with a dark cross, stacked and centred inside the bar — and the pointer stays the plain system arrow over them.</span><span data-zh>所有尺寸二级菜单现在都<b>与选中的那一行齐平展开</b>（皮肤列表仍从菜单顶边开始）。选「自定义」后，条上盖一层<b>黑色 50% 编辑层</b>，它浮在所有区块按钮之上，编辑时点条身绝不会翻页或跳转；<b>确定 / 取消</b>改成两个圆形图标按钮——草绿圆 + 白色对勾、白圆 + 深灰叉，在条内上下排列居中，鼠标移到图标上保持系统默认箭头。</span></p>
 <p><b>1.1.3</b> — <span data-en>The Distance row is split into Horizontal distance and Vertical distance (independent axes, <code>tool.style.distance-x</code> / <code>distance-y</code>); the menu is narrower (380 instead of 430) and now has nine rows; sub-menus open on hover and close when the pointer leaves them (click still works); choosing Custom opens an in-tool edit frame — a 10px solid green border with a translucent inner veil, plus stacked OK (green) and Cancel buttons centred inside the bar — and every bar button is inert while editing.</span><span data-zh>「距离」拆成「横向距离 / 纵向距离」两行，两轴各自独立（皮肤改成 <code>tool.style.distance-x</code> / <code>distance-y</code>）；菜单收窄（430 → 380）并变成 9 行；二级菜单改为鼠标移上去自动展开、移开自动收起（点击照样可用）；选「自定义」进入工具内编辑态：10px 绿色实线框 + 内部半透明，确定（草绿）/ 取消 两个按钮在工具内上下居中排列，编辑期间工具内所有按钮不可点击。</span></p>
 <p><b>1.1.2</b> — <span data-en>Six-position anchoring (right-center / right-top / right-bottom / left-center / left-top / left-bottom); a new Distance row (Default / L / M / S / Custom, px or %) backed by <code>tool.style.distance</code>; Width / Height / Position / Distance all moved into sub-menus that show the current value plus an arrow; the Skin row promoted to the first row; block names renamed to <code>pageup</code> / <code>pagedown</code> / <code>thumb</code> / <code>track</code> / <code>upper-track</code> / <code>lower-track</code> (old A/B/K/F/F1/F2 still accepted). Day/night detection and the topmost toggle are gone — the bar is always on top.</span><span data-zh>位置改成六个方位（右中/右上/右下/左中/左上/左下）；新增「距离」行（默认/大/中/小/自定义，可写 px 或 %），对应皮肤 <code>tool.style.distance</code>；宽度/高度/位置/距离 四行全部改成二级菜单，行右侧显示当前值 + 箭头；皮肤行提到第 1 行；区块名改为 <code>pageup</code> / <code>pagedown</code> / <code>thumb</code> / <code>track</code> / <code>upper-track</code> / <code>lower-track</code>（旧名 A/B/K/F/F1/F2 仍兼容）。日夜检测与置顶开关已移除，工具永远置顶。</span></p>
 <p><b>1.1.0</b> — <span data-en>Renamed from <code>Gunbar</code> (earlier <code>BigScrollBar</code>) to <b>BigBar</b>: program, install folder, registry key, skin folder, shortcuts, uninstall entry and UI text. Existing settings and skins migrate automatically. Help link now points to this site.</span><span data-zh>从「滚一下 Gunbar」（更早叫 大号滚动条 BigScrollBar）正式改名为 <b>BigBar</b>：程序名、安装目录、注册表键、皮肤目录、快捷方式、卸载项、界面文案全部改名；已有设置与皮肤自动迁移。使用说明链接改为本站。</span></p>

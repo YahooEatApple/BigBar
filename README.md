@@ -36,9 +36,9 @@ Thin, low-contrast scrollbars are hard to find and harder to grab — especially
 
 ## Install
 
-1. Download `BigBar-Setup-1.1.3.exe` from Releases and run it.
+1. Download `BigBar-Setup-1.1.4.exe` from Releases and run it.
 2. It installs to `%LocalAppData%\Programs\BigBar`, creates desktop + Start-menu shortcuts and enables auto-start.
-3. Silent install: `BigBar-Setup-1.1.3.exe /silent`
+3. Silent install: `BigBar-Setup-1.1.4.exe /silent`
 4. Uninstall: Settings → Apps → **BigBar**, or `Uninstall.exe /uninstall`
 
 ## Skins
