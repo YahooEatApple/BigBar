@@ -60,7 +60,7 @@
 <div class="wrap">
 
 <header>
-  <div class="badge">Windows · v1.1.2 · Free</div>
+  <div class="badge">Windows · v1.1.3 · Free</div>
   <h1><span>BigBar</span></h1>
   <p class="lead" data-en>A big, always-on-top scroll bar on the edge of your screen. It scrolls the window you last clicked — browsers, Word, Excel, PDF, Notepad, anything. Skinnable, one small exe, silent install.</p>
   <p class="lead" data-zh>常驻桌面的大号滚动条：屏幕边缘一条看得见、点得中的滚动控制条，滚动的永远是你最后一次点击的那个窗口。浏览器、Word、Excel、PDF、记事本都行。皮肤可自定义，单文件小 exe，静默安装。</p>
@@ -129,7 +129,8 @@
   <tr><td data-en>Width</td><td data-zh>宽度</td><td data-en>Sub-menu: Default / L / M / S — reads <code>tool.style.width</code> steps; falls back to the skin <code>default</code>, then to 100px. The row shows the current value plus an arrow.</td><td data-zh>二级菜单：默认 / 大 / 中 / 小，取皮肤 <code>tool.style.width</code> 的四档；皮肤没写就用 default，再没写就用 100px。行右侧显示当前档 + 箭头。</td></tr>
   <tr><td data-en>Height</td><td data-zh>高度</td><td data-en>Sub-menu: Default / L / M / S / Custom — clamped by the skin's <code>limit</code> (max-height / min-height). Custom enters adjust mode.</td><td data-zh>二级菜单：默认 / 大 / 中 / 小 / 自定，结果永远被皮肤 <code>limit</code>（max-height / min-height）夹住；自定进入调整状态。</td></tr>
   <tr><td data-en>Position</td><td data-zh>位置</td><td data-en>Sub-menu: Default / right-center / right-top / right-bottom / left-center / left-top / left-bottom / Custom — Default follows <code>tool.style.position</code>; Custom enters adjust mode so you can drag the bar anywhere.</td><td data-zh>二级菜单：默认 / 右中 / 右上 / 右下 / 左中 / 左上 / 左下 / 自定，默认取皮肤 <code>tool.style.position</code>；自定进入调整状态，可手动拖到任意位置。</td></tr>
-  <tr><td data-en>Distance</td><td data-zh>距离</td><td data-en>Sub-menu: Default / L / M / S / Custom — the gap between the bar and the screen edge it hugs, from <code>tool.style.distance</code> (px or <code>%</code>: width for horizontal, height for vertical). Custom enters adjust mode.</td><td data-zh>二级菜单：默认 / 大 / 中 / 小 / 自定义，距离＝工具离所选屏边的间距，取皮肤 <code>tool.style.distance</code>（可写 px 或 %：横向按工作区宽、纵向按高）；自定义进入调整状态。</td></tr>
+  <tr><td data-en>Horizontal distance</td><td data-zh>横向距离</td><td data-en>Sub-menu: Default / L / M / S / Custom — gap between the bar and the left or right screen edge, from <code>tool.style.distance-x</code> (px or <code>%</code> of the working-area width). Custom enters adjust mode.</td><td data-zh>二级菜单：默认 / 大 / 中 / 小 / 自定义，横向距离＝工具离屏幕左右选择侧的间距，取皮肤 <code>tool.style.distance-x</code>（可写 px 或 %，按工作区宽算）；自定义进入调整状态。</td></tr>
+  <tr><td data-en>Vertical distance</td><td data-zh>纵向距离</td><td data-en>Sub-menu: Default / L / M / S / Custom — gap between the bar and the top or bottom screen edge, from <code>tool.style.distance-y</code> (px or <code>%</code> of the working-area height). The two axes act independently.</td><td data-zh>二级菜单：默认 / 大 / 中 / 小 / 自定义，纵向距离＝工具离屏幕上下选择侧的间距，取皮肤 <code>tool.style.distance-y</code>（可写 px 或 %，按工作区高算）；横纵两轴各自独立生效。</td></tr>
   <tr><td data-en>Adjust mode</td><td data-zh>调整状态</td><td data-en>Confirm (✓ red) / cancel (✕ white) round buttons appear on the free side of the bar: 50px diameter, 20px apart, 20px away from the bar; right-click is disabled while adjusting.</td><td data-zh>条的空闲一侧出现 确定（红 ✓）/ 取消（白 ✕）圆钮，直径 50px、间距 20px、离条 20px，调整状态下右键不再弹菜单。</td></tr>
   <tr><td data-en>Opacity</td><td data-zh>透明度</td><td data-en>Slider, 0–100, no percentage number; its right end lines up with the other rows.</td><td data-zh>进度条选择 0–100，不显示百分比数字，右端与其它行对齐。</td></tr>
   <tr><td data-en>Sound</td><td data-zh>声音</td><td data-en>On / Off toggle; the skin supplies the state sounds.</td><td data-zh>开 / 关切换，各状态音效由皮肤提供。</td></tr>
@@ -138,8 +139,8 @@
   <tr><td data-en>Hide</td><td data-zh>隐藏</td><td data-en>Hide the bar (restore from the tray icon). There is no topmost row — the bar is always on top.</td><td data-zh>隐藏工具（从托盘图标恢复）。菜单里没有「置顶」行，工具永远置顶。</td></tr>
 </table>
 
-<p data-en>Size lives in the skin's <code>tool.style</code>: <code>width</code>, <code>height</code> and <code>distance</code> are four-step objects (<code>default</code>, <code>large</code>, <code>medium</code>, <code>small</code>), <code>position</code> picks one of six anchors (<code>right-center</code>, <code>right-top</code>, <code>right-bottom</code>, <code>left-center</code>, <code>left-top</code>, <code>left-bottom</code>), and <code>limit</code> pins <code>max-height</code> / <code>min-height</code>. The menu's Width / Height / Position / Distance rows read those values, and your own choice always wins over the skin default, which in turn wins over the built-in defaults (100px / 70% / right-center / 30px).</p>
-<p data-zh>尺寸写在皮肤的 <code>tool.style</code> 里：<code>width</code> / <code>height</code> / <code>distance</code> 都是四档对象（<code>default</code>、<code>large</code>、<code>medium</code>、<code>small</code>），<code>position</code> 选六个方位之一（<code>right-center</code>、<code>right-top</code>、<code>right-bottom</code>、<code>left-center</code>、<code>left-top</code>、<code>left-bottom</code>），<code>limit</code> 定 <code>max-height</code> / <code>min-height</code>。菜单的 宽度 / 高度 / 位置 / 距离 四行就按这些取值；优先级是 你的选择 &gt; 皮肤 default &gt; 系统默认（100px / 70% / right-center / 30px）。</p>
+<p data-en>Size lives in the skin's <code>tool.style</code>: <code>width</code>, <code>height</code>, <code>distance-x</code> and <code>distance-y</code> are four-step objects (<code>default</code>, <code>large</code>, <code>medium</code>, <code>small</code>), <code>position</code> picks one of six anchors (<code>right-center</code>, <code>right-top</code>, <code>right-bottom</code>, <code>left-center</code>, <code>left-top</code>, <code>left-bottom</code>), and <code>limit</code> pins <code>max-height</code> / <code>min-height</code>. The menu's Width / Height / Position / Horizontal / Vertical distance rows read those values, and your own choice always wins over the skin default, which in turn wins over the built-in defaults (100px / 70% / right-center / 30px).</p>
+<p data-zh>尺寸写在皮肤的 <code>tool.style</code> 里：<code>width</code> / <code>height</code> / <code>distance-x</code> / <code>distance-y</code> 都是四档对象（<code>default</code>、<code>large</code>、<code>medium</code>、<code>small</code>），<code>position</code> 选六个方位之一（<code>right-center</code>、<code>right-top</code>、<code>right-bottom</code>、<code>left-center</code>、<code>left-top</code>、<code>left-bottom</code>），<code>limit</code> 定 <code>max-height</code> / <code>min-height</code>。菜单的 宽度 / 高度 / 位置 / 横向距离 / 纵向距离 五行就按这些取值；优先级是 你的选择 &gt; 皮肤 default &gt; 系统默认（100px / 70% / right-center / 30px）。</p>
 
 <h2 data-en>Skins</h2>
 <h2 data-zh>皮肤</h2>
@@ -153,7 +154,8 @@
         "width":    { "default": "100px", "large": "100px", "medium": "70px", "small": "50px" },
         "height":   { "default": "600px", "large": "70%",   "medium": "50%", "small": "30%" },
         "position": { "default": "right-center" },
-        "distance": { "default": "30px", "large": "50px", "medium": "30px", "small": "0px" },
+        "distance-x": { "default": "30px", "large": "50px", "medium": "30px", "small": "0px" },
+        "distance-y": { "default": "30px", "large": "50px", "medium": "30px", "small": "0px" },
         "limit":    { "max-height": "90%", "min-height": "400px" } } }
   ],
   "buttons": [
@@ -181,15 +183,15 @@
 <h2 data-en>Install</h2>
 <h2 data-zh>安装</h2>
 <ol data-en>
-  <li>Download <code>BigBar-Setup-1.1.2.exe</code> and run it.</li>
+  <li>Download <code>BigBar-Setup-1.1.3.exe</code> and run it.</li>
   <li>Install target: <code>%LocalAppData%\Programs\BigBar</code>. Desktop + Start-menu shortcuts and auto-start are created.</li>
-  <li>Silent install: <code>BigBar-Setup-1.1.2.exe /silent</code>.</li>
+  <li>Silent install: <code>BigBar-Setup-1.1.3.exe /silent</code>.</li>
   <li>Uninstall: Settings → Apps → BigBar, or <code>Uninstall.exe /uninstall</code>.</li>
 </ol>
 <ol data-zh>
-  <li>下载 <code>BigBar-Setup-1.1.2.exe</code> 后运行。</li>
+  <li>下载 <code>BigBar-Setup-1.1.3.exe</code> 后运行。</li>
   <li>默认装到 <code>%LocalAppData%\Programs\BigBar</code>，自动生成桌面与开始菜单快捷方式、写入开机自启。</li>
-  <li>静默安装：<code>BigBar-Setup-1.1.2.exe /silent</code>。</li>
+  <li>静默安装：<code>BigBar-Setup-1.1.3.exe /silent</code>。</li>
   <li>卸载：设置 → 应用 → BigBar，或运行安装目录里的 <code>Uninstall.exe /uninstall</code>。</li>
 </ol>
 
@@ -220,6 +222,7 @@
 
 <h2 data-en>Changelog</h2>
 <h2 data-zh>更新日志</h2>
+<p><b>1.1.3</b> — <span data-en>The Distance row is split into Horizontal distance and Vertical distance (independent axes, <code>tool.style.distance-x</code> / <code>distance-y</code>); the menu is narrower (380 instead of 430) and now has nine rows; sub-menus open on hover and close when the pointer leaves them (click still works); choosing Custom opens an in-tool edit frame — a 10px solid green border with a translucent inner veil, plus stacked OK (green) and Cancel buttons centred inside the bar — and every bar button is inert while editing.</span><span data-zh>「距离」拆成「横向距离 / 纵向距离」两行，两轴各自独立（皮肤改成 <code>tool.style.distance-x</code> / <code>distance-y</code>）；菜单收窄（430 → 380）并变成 9 行；二级菜单改为鼠标移上去自动展开、移开自动收起（点击照样可用）；选「自定义」进入工具内编辑态：10px 绿色实线框 + 内部半透明，确定（草绿）/ 取消 两个按钮在工具内上下居中排列，编辑期间工具内所有按钮不可点击。</span></p>
 <p><b>1.1.2</b> — <span data-en>Six-position anchoring (right-center / right-top / right-bottom / left-center / left-top / left-bottom); a new Distance row (Default / L / M / S / Custom, px or %) backed by <code>tool.style.distance</code>; Width / Height / Position / Distance all moved into sub-menus that show the current value plus an arrow; the Skin row promoted to the first row; block names renamed to <code>pageup</code> / <code>pagedown</code> / <code>thumb</code> / <code>track</code> / <code>upper-track</code> / <code>lower-track</code> (old A/B/K/F/F1/F2 still accepted). Day/night detection and the topmost toggle are gone — the bar is always on top.</span><span data-zh>位置改成六个方位（右中/右上/右下/左中/左上/左下）；新增「距离」行（默认/大/中/小/自定义，可写 px 或 %），对应皮肤 <code>tool.style.distance</code>；宽度/高度/位置/距离 四行全部改成二级菜单，行右侧显示当前值 + 箭头；皮肤行提到第 1 行；区块名改为 <code>pageup</code> / <code>pagedown</code> / <code>thumb</code> / <code>track</code> / <code>upper-track</code> / <code>lower-track</code>（旧名 A/B/K/F/F1/F2 仍兼容）。日夜检测与置顶开关已移除，工具永远置顶。</span></p>
 <p><b>1.1.0</b> — <span data-en>Renamed from <code>Gunbar</code> (earlier <code>BigScrollBar</code>) to <b>BigBar</b>: program, install folder, registry key, skin folder, shortcuts, uninstall entry and UI text. Existing settings and skins migrate automatically. Help link now points to this site.</span><span data-zh>从「滚一下 Gunbar」（更早叫 大号滚动条 BigScrollBar）正式改名为 <b>BigBar</b>：程序名、安装目录、注册表键、皮肤目录、快捷方式、卸载项、界面文案全部改名；已有设置与皮肤自动迁移。使用说明链接改为本站。</span></p>
 
