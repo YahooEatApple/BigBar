@@ -43,7 +43,7 @@ Thin, low-contrast scrollbars are hard to find and harder to grab — especially
 
 ## Skins
 
-Skins live in `%AppData%\BigBar\skins`. A default skin plus three samples are written there on first run.
+Skins live in `%AppData%\BigBar\skins`. Three skins are written there on first run — `默认皮肤` (flat white), `小狗旺旺` and `北国风光` (both image skins). The fourth, `驴友爬山`, ships through the site.
 
 ```json
 {
@@ -77,6 +77,8 @@ Skins live in `%AppData%\BigBar\skins`. A default skin plus three samples are wr
 ```
 
 `background-repeat` follows standard CSS (`repeat-x` / `repeat-y` / `no-repeat`), `background-position` accepts negative and split values, `background-size` accepts `auto` / `cover` / `100% auto`. `tool.style` holds `width` / `height` / `distance` as four-step objects (`default` / `large` / `medium` / `small`), `position` as one of the six anchors (`right-center` / `right-top` / `right-bottom` / `left-center` / `left-top` / `left-bottom`), and `limit` as `max-height` / `min-height`. Switching a skin reloads its files, images and size immediately.
+
+The gallery on [www.bigbar.me/skins](http://www.bigbar.me/skins) carries exactly these four finished skins, one code each: `northern-light` (北国风光), `dog` (小狗旺旺), `hike` (驴友爬山), `default` (默认皮肤). Type a code in the app's *Add skin* window and it downloads `http://www.bigbar.me/skin/<code>` straight into `%AppData%\BigBar\skins`.
 
 Files you edit yourself are never overwritten by an update: built-in skins are only upgraded when they carry the program's own marker. If a skin ever gets replaced, a numbered `*.bakN` copy stays next to it.
 
